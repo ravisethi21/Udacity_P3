@@ -14,7 +14,7 @@ jobs:
           command: 
             echo "Hello Ravi Sethi">output.txt
       - persist_to_workspace:
-          root: tmp/workspace
+          root: ~/
           paths:
               - "output.txt"      
   read_from_file:
