@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Ensure backend infrastructure exist
+          name: Ensure backend infrastructure exist xx
           command: |
             aws cloudformation deploy \
               --template-file .circleci\template.yml \
