@@ -5,7 +5,7 @@ Resources:
       SecurityGroups:
         - Ref: InstanceSecurityGroup
       KeyName: ubuntukey
-      ImageId: 'ami-035f5c21892a2d90c' 
+      ImageId: 'ami-0db0b3ab7df22e366' 
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
