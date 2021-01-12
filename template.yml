@@ -4,7 +4,7 @@ Resources:
     Properties:
       SecurityGroups:
         - Ref: InstanceSecurityGroup
-      KeyName: ubuntukey
+      KeyName: EC2CLIKEYPAIR
       ImageId: ami-0dd9f0e7df0f0a138
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
