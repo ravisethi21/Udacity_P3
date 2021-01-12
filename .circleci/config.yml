@@ -10,8 +10,7 @@ jobs:
           command: |
             aws cloudformation deploy \
               --template-file template.yml \
-              --stack-name my-stack \
-              --capabilities CAPABILITY_IAM
+              --stack-name my-stack 
 workflows:
   my_workflow:
     jobs:
