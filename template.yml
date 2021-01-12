@@ -2,5 +2,5 @@ Resources:
   Ec2Instance:
     Type: AWS::EC2::Instance
     Properties:
-           ImageId: "ami-0dd9f0e7df0f0a138"  # Image suggested by mentor, my region is us-east-bla
+           ImageId: "ami-0a0ad6b70e61be944"  # Image suggested by mentor, my region is us-east-bla
  
