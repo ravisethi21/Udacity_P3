@@ -5,7 +5,7 @@ Resources:
       SecurityGroups:
         - Ref: InstanceSecurityGroup
       KeyName: EC2CLIKEYPAIR
-      ImageId: ami-02823ee69ca77625c  # Image available in Ohio
+      ImageId: ami-02823ee69ca77625c  # Image available in Ohio us-east-2
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
