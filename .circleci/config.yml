@@ -24,7 +24,7 @@ jobs:
       - run:
           name: smoke test.
           command: |
-            URL="http://ec2-3-16-14-247.us-east-2.compute.amazonaws.com:3000/"
+            URL="http://ec2-3-16-14-247.us-east-2.compute.amazonxxxaws.com:3000/"
             if curl -s --head ${URL} # test if out website launched
             then
               return 0
