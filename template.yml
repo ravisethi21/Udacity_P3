@@ -1,13 +1,13 @@
 Resources:
   Ec2Instance:
-    Type: 'AWS::EC2::Instance'
+    Type: AWS::EC2::Instance
     Properties:
       SecurityGroups:
         - Ref: InstanceSecurityGroup
       KeyName: EC2CLIKEYPAIR
-      ImageId: ami-02823ee69ca77625c  # Image available in Ohio us-east-2
+      ImageId: ami-0dd9f0e7df0f0a138  # Image available in Ohio us-east-2
   InstanceSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: Enable SSH access via port 22
       SecurityGroupIngress:
