@@ -16,8 +16,29 @@ jobs:
           name: Configure server
           command: |
             ansible-playbook -i inventory main-remote.yml
+  smoke_test:
+    docker:
+      - image: alpine:latest
+    steps:
+      - run: apk add --update curl
+      - run:
+          name: smoke test.
+          command: |
+            URL="http://ec2-3-16-14-247.us-east-2.compute.amazonaws.com:3000/"
+            if curl -s --head ${URL} # test if out website launched
+            then
+              return 0
+            else
+              echo "Code not working"
+              return 1
+            fi
 
 workflows:
   my_workflow:
     jobs:
       - configure_infrastructure
+      - smoke_test:
+          requires:
+            - configure_infrastructure
+
+
