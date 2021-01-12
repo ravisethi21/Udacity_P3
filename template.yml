@@ -2,16 +2,5 @@ Resources:
   Ec2Instance:
     Type: 'AWS::EC2::Instance'
     Properties:
-      SecurityGroups:
-        - !Ref InstanceSecurityGroup
-      KeyName: ubuntukey
-      ImageId: ami-035f5c21892a2d90c 
-  InstanceSecurityGroup:
-    Type: 'AWS::EC2::SecurityGroup'  #3- !Ref InstanceSecurityGroup66
-    Properties:
-      GroupDescription: Enable SSH access via port 22
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: '22'
-          ToPort: '22'
-          CidrIp: 0.0.0.0/0
+      ImageId: ami-0db0b3ab7df22e366 
+ 
