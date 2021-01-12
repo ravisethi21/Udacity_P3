@@ -5,7 +5,7 @@ Resources:
       SecurityGroups:
         - Ref: InstanceSecurityGroup
       KeyName: EC2CLIKEYPAIR
-      ImageId: ami-0dd9f0e7df0f0a138  # Image suggested by mentor, my region is us-east-2
+      ImageId: ami-0dd9f0e7df0f0a138  # Image suggested by mentor, my region is us-east-bla
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
