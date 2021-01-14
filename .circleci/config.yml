@@ -1,44 +1,17 @@
 version: 2.1
-
 jobs:
-  configure_infrastructure:
+  create_and_deploy_front_end:
     docker:
-      - image: python:3.7-alpine3.11
+      - image: amazon/aws-cli
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints: ["06:df:fa:35:aa:80:57:89:06:a9:9f:49:ca:b6:97:06"] # You can get this ID in the section where you registered the SSH Key
-      - run:
-          name: Install dependencies
-          command: |
-            apk add --update ansible # install the dependencies needed for the playbook
-      - run:
-          name: Configure server
-          command: |
-            ansible-playbook -i inventory main-remote.yml
-  smoke_test:
-    docker:
-      - image: alpine:latest
-    steps:
-      - run: apk add --update curl
-      - run:
-          name: smoke test.
-          command: |
-            URL="http://ec2-3-16-14-247.us-east-2.compute.amazonxxxaws.com:3000/"
-            if curl -s --head ${URL} # test if out website launched
-            then
-              return 0
-            else
-              echo "Code not working"
-              return 1
-            fi
-
+      - run: |
+          aws cloudformation deploy \
+            --template-file bucket.yml \
+            --stack-name "${CIRCLE_WORKFLOW_ID}" \
+            --parameter-overrides NAME="${CIRCLE_WORKFLOW_ID}"
+      - run: aws s3 sync . s3://"${CIRCLE_WORKFLOW_ID}" --delete
 workflows:
-  my_workflow:
-    jobs:
-      - configure_infrastructure
-      - smoke_test:
-          requires:
-            - configure_infrastructure
-
-
+    default:
+      jobs:
+        - create_and_deploy_front_end
