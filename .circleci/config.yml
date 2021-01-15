@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run: |
-          aws cloudformation deploy --template-file bucket.yml --stack-name mystack --parameter-overrides NAME="${CIRCLE_WORKFLOW_ID:0:7}"
+          aws cloudformation deploy --template-file bucket.yml --stack-name "${CIRCLE_WORKFLOW_ID:0:7}" --parameter-overrides NAME="${CIRCLE_WORKFLOW_ID:0:7}"
      # - run: aws s3 sync . s3://"${CIRCLE_WORKFLOW_ID:0:7}" --delete
 workflows:
     default:
